@@ -10,6 +10,7 @@ import { securityMiddleware, corsMiddleware, compressionMiddleware } from './mid
 import healthRoutes from './routes/health.routes';
 import scrapeRoutes from './routes/scrape.routes';
 import testRoutes from './routes/test.routes';
+import scraperRoutes from './routes/scraper';
 import { getHealth } from './controllers/health.controller';
 
 export const createApp = () => {
@@ -58,6 +59,7 @@ export const createApp = () => {
   app.use('/health', healthRoutes);
   app.use('/api/scrape', scrapeRoutes);
   app.use('/api/tests/smoke', testRoutes);
+  app.use('/', scraperRoutes);
 
   // 404 handler
   app.use(notFoundMiddleware);
