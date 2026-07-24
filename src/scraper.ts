@@ -1,5 +1,6 @@
 import { chromium, firefox, webkit, Browser } from 'playwright';
 import logger from './config/logger';
+// trigger redeploy
 
 export interface ScraperOptions {
   url: string;
