@@ -108,6 +108,8 @@ class Scraper {
 
       logger.info(`Scraping custom URL: ${options.url}`);
       await page.goto(options.url, { waitUntil: 'domcontentloaded' });
+      // Allow client-side rendered SPA content (e.g. React) to finish painting
+      await page.waitForTimeout(3000);
 
       let data: Record<string, any> = {};
 
