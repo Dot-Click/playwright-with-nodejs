@@ -106,7 +106,7 @@ class Scraper {
       page.setDefaultTimeout(timeout);
 
       logger.info(`Scraping custom URL: ${options.url}`);
-      await page.goto(options.url, { waitUntil: 'networkidle' });
+      await page.goto(options.url, { waitUntil: 'domcontentloaded' });
 
       let data: Record<string, any> = {};
 
